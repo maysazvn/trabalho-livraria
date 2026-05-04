@@ -1,4 +1,48 @@
 <script setup>
+const produtos = [
+  {
+  id: 1,
+  titulo: 'Jurassic Park',
+  autor: 'Michael Crichton',
+  preco: 58.00,
+  capa: '/imagens/jurassic-park.jpg'
+}, 
+{
+  id: 2,
+  titulo: 'Orgulho e Preconceito',
+  autor: 'Jane Austen',
+  preco: 51.00,
+  capa: '/imagens/orgulho-e-preconceito.jpg'
+},
+{
+  id: 3,
+  titulo: 'O morro dos ventos uivantes',
+  autor: 'Emily Bronte',
+  preco: 44.90,
+  capa: '/imagens/o-morro.jpg'
+},
+{
+  id: 4,
+  titulo: 'Capitães de areia',
+  autor: 'Jorge Amado',
+  preco: 36.70,
+  capa: '/imagens/capitaes.jpg'
+},
+{
+  id: 5,
+  titulo: "Olhos d'água",
+  autor: 'Conceição Evaristo',
+  preco: 24.50,
+  capa: '/imagens/olhos.jpg'
+},
+{
+  id: 6,
+  titulo: 'Uma correnteza sufocante',
+  autor: 'Allison Saft',
+  preco: 27.00,
+  capa: '/imagens/correnteza.jpg'
+}
+]
 </script>
 
 <template>
@@ -50,8 +94,14 @@
    <section class="produtos">
     <h2>Lançamentos</h2>
 
-    <div class="livros">
+    <div class="livros" v-for="livro in produtos" :key="livro.id">
+      <img :src="livro.capa">
 
+      <h3>{{ livro.titulo }}</h3>
+      <p class="autor">{{ livro.autor }}</p>
+      <p class="preco">R${{ livro.preco }}</p>
+
+      <button>Comprar</button>
     </div>
    </section>
   </main>
